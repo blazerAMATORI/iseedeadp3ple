@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #0b0f1a;
+  color: white;
+  text-align: center;
+}
+
+.screen {
+  display: none;
+  padding: 40px;
+}
+
+.active {
+  display: block;
+}
+
+input, button {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 10px;
+  border: none;
+}
+
+button {
+  background: #00f0ff;
+  cursor: pointer;
+}
+
+#answers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.answer {
+  background: #1a1f2e;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}

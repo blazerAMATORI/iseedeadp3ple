@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz Arena</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div id="app">
+
+  <div id="home" class="screen active">
+    <h1>⚡ QUIZ ARENA</h1>
+
+    <input id="hostName" placeholder="Твой ник"/>
+    <button onclick="createRoom()">Создать комнату</button>
+
+    <hr/>
+
+    <input id="joinCode" placeholder="Код комнаты"/>
+    <input id="playerName" placeholder="Ник"/>
+    <button onclick="joinRoom()">Подключиться</button>
+
+    <div id="roomCodeBox"></div>
+  </div>
+
+  <div id="lobby" class="screen">
+    <h2>Комната: <span id="roomCode"></span></h2>
+    <div id="players"></div>
+
+    <button onclick="startGame('dota')">Dota 2</button>
+    <button onclick="startGame('cs')">CS2</button>
+    <button onclick="startGame('tiktok')">TikTok</button>
+  </div>
+
+  <div id="game" class="screen">
+    <h2 id="question"></h2>
+    <div id="answers"></div>
+  </div>
+
+  <div id="results" class="screen">
+    <h2>Результаты 🏆</h2>
+    <div id="winners"></div>
+  </div>
+
+</div>
+
+<script src="data/questions.js"></script>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+  import { getDatabase, ref, set, onValue, push, update } 
+    from "https://www.gstatic.com/firebasejs/12.13.0/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyD-G2bc3cEpRzMwllhRqTRzaplz-oafei0",
+    authDomain: "iseedeadp3ple.firebaseapp.com",
+    databaseURL: "https://iseedeadp3ple-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "iseedeadp3ple",
+    storageBucket: "iseedeadp3ple.firebasestorage.app",
+    messagingSenderId: "79076923752",
+    appId: "1:79076923752:web:3ef1f127c287ff6116dedd"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+
+  window.db = db;
+  window.fbRef = ref;
+  window.fbSet = set;
+  window.fbOn = onValue;
+  window.fbPush = push;
+  window.fbUpdate = update;
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
